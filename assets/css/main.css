@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0 !important;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+.container-custom {
+    max-width: 1024px;
+    margin: 0 auto;
+    /* overflow: hidden; */
+
+}
+
+/* nav */
+#navigation {
+    /* transition: all 1s; */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+   
+
+}
+
+.navigation-animate {
+    animation-name: stuck;
+    animation-duration: 0.5s;
+    /* padding: 0 32px !important; */
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 99;
+    width: 100%;
+    /* transition: 1s; */
+
+}
+.temp{
+    display: none;
+}
+@keyframes stuck {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    width: 120px;
+    object-fit: cover;
+    margin-right: 32px;
+}
+
+.nav-link {
+    font-weight: bold;
+    color: black;
+    position: relative;
+    padding: 8px 0 !important;
+    font-size: 13px;
+    text-transform: uppercase;
+    height: 40px;
+   
+
+}
+
+.nav-item>.active {
+    border-bottom: 3px solid #000;
+    /* outline:solid 3px #000; */
+
+    transition: 0.1s;
+
+}
+
+/* .nav-link:hover{
+    border-bottom: 3px solid #000;
+    transition: 0.1s;
+} */
+/* .nav-item>.dropdown-menu:hover .nav-link{
+    border-bottom: 3px solid #000;
+    transition: 0.1s;
+} */
+/* .nav-link:hover .nav-item >.active{
+    border-bottom: none;
+} */
+.btn-hotline {
+    background-color: #ff1616;
+    color: white;
+    font-weight: 700;
+
+}
+
+.btn-hotline:hover {
+    background-color: #ff1616;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border: 1px solid #ff1616;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+    margin-top: 0;
+
+}
+
+.dropdown-menu {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 0;
+    left: 0;
+}
+
+.dropdown-item {
+    font-size: 13px;
+    color: #7b7b7b;
+}
+
+/* end nav */
+/* slideshow */
+.slide-img {
+    width: 100vw;
+    /* height: 1200px; */
+    max-height: 80vh;
+    object-fit: cover;
+
+}
+
+.btn-slideshow {
+    height: 10px !important;
+    width: 10px !important;
+    border-radius: 50%;
+}
+
+/* end slide show */
+/* content */
+.img-link {
+    width: 300px;
+    margin-top: 32px;
+}
+
+.img-product {
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-product:hover .img-product {
+    /* filter: sc; */
+    z-index: -999;
+    transform: scale(1.15);
+    transition: 0.5s;
+}
+/* carousel-news */
+#carousel-news{
+    position: relative;
+}
+#carousel-news:hover .next, .prev{
+    display: flex;
+}
+#carousel-news:not(:hover) .next, .prev{
+    display: none ;
+}
+
+#carousel-news > .wrapper{
+    overflow: hidden;
+    scroll-behavior: smooth;
+    transition: 0.5s;
+}
+#content{
+    width: 99000px;
+}
+#content:last-child{
+    margin-right: 0 !important;
+}
+.news-link{
+    width: 496px ;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.img-news{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.next, .prev{
+    border: none;
+    background: none;
+    position: absolute;
+    top: 36%;
+    font-size: 22px;
+    display: none;
+    padding: 24px;
+
+}
+.next{
+    right: -48px;
+}
+.prev{
+    left: -48px;
+}
+/* end content */
+.list-icon-item{
+    font-size: 40px;
+}
+/* footer */
+.footer-title{
+    color: white;
+    border-bottom: 0.5px solid #7b7b7b;
+    padding: 16px 0;
+    text-transform: uppercase;
+}
+/* ---------product-page-------- */
+/* sldie */
+.slide-product{
+
+}
+.wrapper-show-picture{
+    position: relative;
+}
+
+.wrapper-list-product{
+    overflow: hidden;
+}
+.list-piture{
+    width: 100%;
+    display: flex;
+   
+
+}
+.list-piture .thumbnail{
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+    opacity: 0.5;
+}
+.list-piture .thumbnail:hover{
+    opacity: 1;
+    border: rgba(0, 0, 0, 0.3) solid 0.5px;
+}
+.active-thumbnail{
+    opacity: 1 !important;
+    border: rgba(0, 0, 0, 0.3) solid 0.5px;
+}
+.slide-product .btn-next-thumbnail{
+   position: absolute;
+   border: none;
+   top: 45%;
+   right: 0;
+   background-color: none;
+   font-size: 24px;
+   opacity: 0;
+   transition: 0.5s;
+
+}
+.slide-product .btn-prev-thumbnail{
+    position: absolute;
+    border: none;
+    top: 45%;
+    left: 0;
+    background-color: none;
+    font-size: 24px;
+    opacity: 0;
+    transition: 0.5s;
+ }
+ .wrapper-show-picture:hover  .btn-next-thumbnail  {
+    opacity: 1;
+    transform: translateX(4px);
+ }
+ .wrapper-show-picture:hover  .btn-prev-thumbnail  {
+    opacity: 1;
+    transform: translateX(-4px);
+ }
+/* end slide */
