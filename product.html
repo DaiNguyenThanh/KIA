@@ -108,8 +108,8 @@
     <main id="main">
         <div class="container-custom">
             <hr>
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row gx-0">
+                <div class="col-md-6 px-0">
                     <div class="slide-product">
                         <div class="wrapper-show-picture text-center">
                             <img class="show-picture"
@@ -118,7 +118,7 @@
                                 <button class="btn-next-thumbnail btn"><i class="fas fa-chevron-right"></i></button>
                         </div>
                         <div class="wrapper-list-product">
-                            <div class="list-piture">
+                            <div class="list-picture">
                                 <a href="#" class="mx-2"><img class="thumbnail active-thumbnail"
                                         src="./assets/image/product/Kia-Soluto-21-9-2021-mau-bac--400x267.jpg"
                                         alt=""></a>
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 px-0">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -201,20 +201,7 @@
 
         <!-- place footer here -->
     </footer>
-    <script>
-        
-        let thumbnails = document.getElementsByClassName("thumbnail")
-        let activeThumbnail = document.getElementsByClassName("active-thumbnail")
-        for (var i = 0; i < thumbnails.length; i++) {
-            thumbnails[i].addEventListener("click", function () {
-                if (activeThumbnail.length > 0) {
-                    activeThumbnail[0].classList.remove("active-thumbnail")
-                }
-                this.classList.add("active-thumbnail")
-                document.getElementsByClassName("show-picture")[0].src = this.src
-            })
-        }
-    </script>
+    
 
 
 
@@ -240,7 +227,25 @@
         </script> -->
     <script src="./assets/bs5/js/bootstrap.min.js"></script>
     <!-- js -->
+    <script>
+        gap=16
+        let thumbnails = document.getElementsByClassName("thumbnail")
+        let activeThumbnail = document.getElementsByClassName("active-thumbnail")
+        for (var i = 0; i < thumbnails.length; i++) {
+            thumbnails[i].addEventListener("click", function () {
+                if (activeThumbnail.length > 0) {
+                    activeThumbnail[0].classList.remove("active-thumbnail")
+                }
+                this.classList.add("active-thumbnail")
+                document.getElementsByClassName("show-picture")[0].src = this.src
+            })
+        }
+       
+       
+      
+    </script>
     <script src="./assets/js/main.js"></script>
+   
 </body>
 
 </html>
