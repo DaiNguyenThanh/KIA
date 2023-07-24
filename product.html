@@ -108,14 +108,14 @@
     <main id="main">
         <div class="container-custom">
             <hr>
-            <div class="row gx-0">
+            <div class="row gx-0 mb-4">
                 <div class="col-md-6 px-0">
                     <div class="slide-product">
                         <div class="wrapper-show-picture text-center">
                             <img class="show-picture"
-                                src="./assets/image/product/Kia-Soluto-21-9-2021-mau-bac--400x267.jpg" alt="">
-                                <button class="btn-prev-thumbnail btn"><i class="fas fa-chevron-left"></i></button>
-                                <button class="btn-next-thumbnail btn"><i class="fas fa-chevron-right"></i></button>
+                                src="./assets/image/product/Kia-Soluto-21-9-2021-mau-bac--400x267.jpg" alt="" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick=ShowImage(this)>
+                            <button class="btn-prev-thumbnail btn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="btn-next-thumbnail btn"><i class="fas fa-chevron-right"></i></button>
                         </div>
                         <div class="wrapper-list-product">
                             <div class="list-picture">
@@ -150,18 +150,72 @@
                                         src="./assets/image/product/Kia-Soluto-21-9-2021-mau-bac--400x267.jpg"
                                         alt=""></a>
                             </div>
-                         
+
 
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 px-0">
+                <div class="col-md-6 px-2 border-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page"><a href="#">link</a></li>
                         </ol>
                     </nav>
+                    <h2>Ten San Pham</h2>
+                    <h3>Giá chỉ từ: <span class="text-danger">359.000.000 đ</span></h3>
+                    <hr>
+                    <p>Bảng giá các phiên bản:</p>
+                    <ul>
+                        <li>New Morning MT: 359.000.000 đ</li>
+                    </ul>
+                    <h6>Ưu đãi đặc biệt:</h6>
+                    <p class="text-danger fw-bold">Giảm tiền mặt + tặng bảo hiểm thân vỏ 01 năm ( áp dụng tùy chính sách từng tháng và tùy từng dòng xe, phiên bản)</p>
+                    <h6>Quà tặng chính hãng:</h6>
+                    <ul>
+                        <li>Bảo hành: Bảo hành không giới hạn</li>
+                    </ul>
+                    <h6>Đặc biệt: Giảm giá thêm tiền mặt và nhiều phần quà hấp dẫn khách khi mua xe.</h6>
+                    <hr class="mb-1">
+                    <small>Danh mục: <a href="">KIA</a></small>
+                </div>
+            </div>
+            <div class="row mt-5 px-2">
+                <div class="col-lg-9">
+                    <h4 class="border-top">Mô tả</h4>
+                    <p>Nội dung</p>
+                    <h4 class="fw-bold">Thông số kỹ thuật</h4>
+                    <p class="fw-bold">Kích thước – Trọng lượng</p>
+                    <table class="table">
+                        <tr>
+                            <td class="fw-semibold">KÍCH THƯỚC TỔNG THỂ (DXRXC) / OVERALL DIMENSIONS	</td>
+                            <td>4.315 x 1.800 x 1.645 mm</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">CHIỀU DÀI CƠ SỞ / WHEEL BASE	</td>
+                            <td >2.610 mm </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Sản Phẩm Liên Quan</h4>
+                    <div class="row">
+                        <a href="#" class="text-center card-product col-6 col-lg-12" >
+                            <img src="./assets/image/product/Kia-Soluto-21-9-2021-mau-bac--400x267.jpg" alt="" class="img-product">
+                            <p class="mb-0 mt-2">Kia Soluto</p>
+                            <p class="text-danger mt-0 fw-bold">799.000.000 ₫</p>
+                        </a>
+                        <a href="#" class="text-center card-product  col-6 col-lg-12">
+                            <img src="./assets/image/product/Kia-Soluto-21-9-2021-mau-bac--400x267.jpg" alt="" class="img-product">
+                            <p class="mb-0  mt-2">Kia Soluto</p>
+                            <p class="text-danger mt-0 fw-bold">799.000.000 ₫</p>
+                        </a>
+                        <a href="#" class="text-center card-product  col-6 col-lg-12">
+                            <img src="./assets/image/product/Kia-Soluto-21-9-2021-mau-bac--400x267.jpg" alt="" class="img-product">
+                            <p class="mb-0  mt-2">Kia Soluto</p>
+                            <p class="text-danger mt-0 fw-bold">799.000.000 ₫</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -201,22 +255,37 @@
 
         <!-- place footer here -->
     </footer>
-    
+    <!-- modal when lick images -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header border-0">
+              <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body wrapper-show-picture position-relative">
+              
+                <div class="slide-product">
+                    <div class="wrapper-show-picture text-center">
+                        <img  alt="" id="showImage" class="show-picture">
+
+                        <button class="btn-prev-thumbnail btn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="btn-next-thumbnail btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    </div> 
+                </div>
+            </div>
+            <div class="modal-footer border-0">
+                
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -228,24 +297,31 @@
     <script src="./assets/bs5/js/bootstrap.min.js"></script>
     <!-- js -->
     <script>
-        gap=16
+
         let thumbnails = document.getElementsByClassName("thumbnail")
         let activeThumbnail = document.getElementsByClassName("active-thumbnail")
         for (var i = 0; i < thumbnails.length; i++) {
             thumbnails[i].addEventListener("click", function () {
                 if (activeThumbnail.length > 0) {
-                    activeThumbnail[0].classList.remove("active-thumbnail")
+                    for (j = 0; j < activeThumbnail.length; j++)
+                        activeThumbnail[j].classList.remove("active-thumbnail")
                 }
                 this.classList.add("active-thumbnail")
                 document.getElementsByClassName("show-picture")[0].src = this.src
             })
         }
+
+        function ShowImage(img){
+            let showImage=document.getElementById("showImage")
+            showImage.src=img.src
+        }
        
-       
-      
+
+
+
     </script>
     <script src="./assets/js/main.js"></script>
-   
+
 </body>
 
 </html>

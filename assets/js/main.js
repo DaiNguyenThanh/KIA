@@ -33,6 +33,7 @@ window.addEventListener("load", function () {
 
     });
     // end
+    // ---------HomePage----------//
     // carousel news
     const gap = 16;
     const carouselnews = this.document.getElementById("carousel-news");
@@ -51,20 +52,28 @@ window.addEventListener("load", function () {
                 width = wrapper.offsetWidth;
                 content.style.width = num * (this.document.getElementsByClassName("news-link")[0].offsetWidth + gap) + 'px';
             })
-            carousel(wrapper, next, prev, gap, width-gap)
+            carousel(wrapper, next, prev, gap, width - gap)
         }
         mouseScroll(wrapper, 2)
 
     }
+    // ---------ProductPage----------------
     var slide = document.getElementsByClassName("list-picture")[0]
     if (slide != null) {
-        const wrapper=this.document.getElementsByClassName('list-picture')[0]
-        const next =this.document.getElementsByClassName("btn-next-thumbnail")[0]
-        const prev =this.document.getElementsByClassName("btn-prev-thumbnail")[0]
-        const width=this.document.getElementsByClassName("thumbnail")[0].offsetWidth
-        carousel(wrapper, next, prev, gap, width)
-        mouseScroll(slide, 1)
+        const wrapper = this.document.getElementsByClassName('list-picture')[0]
+        const next = this.document.getElementsByClassName("btn-next-thumbnail")
+        const prev = this.document.getElementsByClassName("btn-prev-thumbnail")
+        const width = this.document.getElementsByClassName("thumbnail")[0].offsetWidth
+        let activeThumbnail = document.getElementsByClassName("active-thumbnail")
+     
+       mouseScroll(slide, 1)
+
+        carousel(wrapper, next[0], prev[0], gap, width)
+        nextAndPrev(next[0],prev[0])
+        nextAndPrev(next[1],prev[1])
     }
+    // -----------Function-------------//
+    // scroll funtion
     function mouseScroll(slider, speed) {
         let isDown = false;
         let startX;
@@ -86,13 +95,15 @@ window.addEventListener("load", function () {
             const x = e.pageX - slider.offsetLeft;
             const walk = (x - startX) * speed; //scroll-fast
             slider.scrollLeft = scrollLeft - walk;
+            slider.style.scrollBehavior = "none";
+
         });
     }
     // carousel funtion
     function carousel(wrapper, next, prev, gap, width) {
 
         next.addEventListener("click", e => {
-            wrapper.scrollBy(width+gap, 0)
+            wrapper.scrollBy(width + gap, 0)
             if (wrapper.scrollWidth !== 0) {
                 prev.style.display = "flex"
             }
@@ -101,7 +112,7 @@ window.addEventListener("load", function () {
             }
         })
         prev.addEventListener("click", e => {
-            wrapper.scrollBy(-width-gap, 0)
+            wrapper.scrollBy(-width - gap, 0)
             if (wrapper.scrollLeft - width <= 0) {
                 prev.style.display = "none"
             }
@@ -112,7 +123,43 @@ window.addEventListener("load", function () {
 
     }
 
+    // nexxt and prev funtion
+    function nextAndPrev(next, prev) {
+        let thumbnails = document.getElementsByClassName("thumbnail")
 
+        next.addEventListener("click", function () {
+
+            for (let i = 0; i <= thumbnails.length - 1; i++) {
+                if (thumbnails[i].className == "thumbnail active-thumbnail") {
+                    thumbnails[i].classList.remove("active-thumbnail")
+
+                    if(i==thumbnails.length-1){
+                        i=-1;
+                        let slide = document.getElementsByClassName("list-picture")[0]
+                        slide.scrollTo(0,0)
+                    }
+                    thumbnails[i + 1].classList.add("active-thumbnail")
+                    document.getElementsByClassName("show-picture")[0].src = thumbnails[i + 1].src
+                    document.getElementsByClassName("show-picture")[1].src = thumbnails[i + 1].src
+                    break;
+                }
+                
+            }
+        })
+        prev.addEventListener("click", function () {
+
+            for (let i = thumbnails.length - 1; i > 0; i--) {
+                if (thumbnails[i].className == "thumbnail active-thumbnail") {
+                    thumbnails[i].classList.remove("active-thumbnail")
+                    thumbnails[i - 1].classList.add("active-thumbnail")
+                    document.getElementsByClassName("show-picture")[0].src = thumbnails[i - 1].src
+                    document.getElementsByClassName("show-picture")[1].src = thumbnails[i - 1].src
+                    break;
+                }
+                
+            }
+        })
+    }
 
     // end
 })

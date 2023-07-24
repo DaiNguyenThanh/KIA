@@ -1,10 +1,12 @@
 * {
     box-sizing: border-box;
+    color:#777777
 }
 
 body {
     padding: 0 !important;
     scroll-behavior: smooth;
+    position: relative;
 }
 
 a {
@@ -242,8 +244,19 @@ a:hover {
 .show-picture {
     width: 100%;
     object-fit: contain;
+    animation: identifier 0.5s;
 }
-
+.stuck-x{
+    animation: stuck-x 0.5s;
+}
+@keyframes stuck-x {
+    0%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
 .wrapper-show-picture {
     position: relative;
 }
@@ -259,7 +272,7 @@ a:hover {
     display: flex;
     overflow: scroll;
     /* overflow-x: auto; */
-    scroll-behavior:unset;
+    scroll-behavior:smooth;
 
 }
 
@@ -268,8 +281,8 @@ a:hover {
 }
 
 .list-picture .thumbnail {
-    height: 100px;
-    width: 100px;
+    height: 110px;
+    width: 110px;
     object-fit: contain;
     opacity: 0.5;
     /* margin: 0 8px 0; */
@@ -288,7 +301,7 @@ a:hover {
 
 }
 
-.slide-product .btn-next-thumbnail {
+.btn-next-thumbnail {
     position: absolute;
     border: none;
     top: 45%;
@@ -297,10 +310,13 @@ a:hover {
     font-size: 24px;
     opacity: 0;
     transition: 0.5s;
+    width: 36px;
+    height: 36px;
+    display: flex;
 
 }
 
-.slide-product .btn-prev-thumbnail {
+.btn-prev-thumbnail {
     position: absolute;
     border: none;
     top: 45%;
@@ -309,16 +325,45 @@ a:hover {
     font-size: 24px;
     opacity: 0;
     transition: 0.5s;
+    width: 36px;
+    height: 36px;
+    display: flex;
 }
 
 .wrapper-show-picture:hover .btn-next-thumbnail {
     opacity: 1;
     transform: translateX(4px);
+    display: flex !important;
 }
 
 .wrapper-show-picture:hover .btn-prev-thumbnail {
     opacity: 1;
     transform: translateX(-4px);
+    display: flex !important;
+
 }
 
 /* end slide */
+/* modal when click image*/
+#overlay{
+    display: none;
+    background-color: rgba(119, 119, 119, 0.7);
+    position: fixed;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+#overlay .modal-img-show{
+    margin: 0 8px;
+    max-width: 90vw;
+    pointer-events: none;
+    position: absolute;
+    z-index: 999;
+}
